@@ -1,0 +1,26 @@
+version: '3'
+services:
+  mypostgres:
+    image: postgres
+    container_name: vj-postgresql-db
+    # volumes:
+    #   - ./postgres-data:/var/lib/postgresql/data
+    env_file:
+      - ./secrets.env
+  service:
+    image: vj-micro-service-image
+    build: ./micro-service
+    container_name: vj-micro-service-container
+    depends_on: 
+      - mypostgres
+  app:
+    image: vj-micro-app-image
+    build: ./micro-app
+    container_name: vj-micro-app-container
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mypostgres
+      - service
+    env_file:
+      - ./secrets.env

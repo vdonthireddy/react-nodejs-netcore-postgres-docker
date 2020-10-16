@@ -1,0 +1,44 @@
+## react-nodejs-aspnet-postgres
+#### Note: This project works only on Mac (You need to modify the allrun.sh file and dockerfiles for Windows)
+#### STEP 1a (for local development): Make sure you have nodejs and npm installed: https://www.npmjs.com/get-npm
+#### STEP 1b: Make sure you have docker installed: https://www.docker.com/products/docker-desktop
+#### STEP 2: Use terminal to clone my git repo
+```
+git clone https://github.com/vdonthireddy/react-nodejs-aspnet-postgres
+```
+#### STEP 3: Run the following commands 
+```
+cd react-nodejs-aspnet-postgres
+bash allrun.sh
+```
+#### STEP 4: Open the url in a browser
+http://localhost:8080 
+
+#### STEP 5: To use C# to get data from PostGres, please set the following value in .env file:
+Go to /react-nodejs-aspnet-postgres/micro-app-client/.env
+edit the following line appropriately (you can find this line in getNotes() function). Use '/api/' for C# and '/' for nodejs directly making calls to PostGres
+```
+REACT_APP_.API_URL_PREFIX=/api/
+```
+If you want to persist the data, please uncomment the following lines in docker-compose.yml
+```
+    # volumes:
+    #   - ./postgres-data:/var/lib/postgresql/data
+```
+#### If you are interested to view logs inside the containers, you can run the following command:
+```
+docker logs --follow ContainerName/ContainerID
+```
+### About this Project:
+This project is divided into three parts:
+1. Micro App
+    a) React App (Deployed in NodeJS)
+    b) NodeJS (Can call PostgreSQL directly, or Micro Service APIs)
+2. Micro Service (Written in .Net Core 5.0 and C#)
+3. PostgreSQL (Database)
+
+What's missing?
+1. PostgreSQL data files should be stored in docker volumes to persist the data even if Postgres instance is removed
+2. Deploy the docker images in K8s
+3. Unit Testing
+4. Many other :-)
