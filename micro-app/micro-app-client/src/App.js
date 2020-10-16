@@ -18,18 +18,18 @@ class App extends Component {
       console.log('Step 3: getNotes in App.js');
   }
 
-  notesAdded = () => {
-    console.log('Step 2: notesAdded in App.js');
+  notesRefreshed = () => {
+    console.log('Step 2: notesRefreshed in App.js');
     this.getNotes();
-    console.log('App.js notesAdded');
+    console.log('App.js notesRefreshed');
   }
 
   render(){
     return (
       <div className="App">
         <header className="App-header">
-          <NewWorkOrderNotes onNotesAdded={this.notesAdded.bind(this)}/>
-          <WorkorderNotes notes={this.state.notes}/>
+          <NewWorkOrderNotes onNotesAdded={this.notesRefreshed.bind(this)}/>
+          <WorkorderNotes onNotesDeleted={this.notesRefreshed.bind(this)} notes={this.state.notes}/>
         </header>
       </div>
     );

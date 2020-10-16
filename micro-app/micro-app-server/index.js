@@ -64,6 +64,17 @@ insertData = (notes)=> {
     });
 }
 
+//Delete data
+deleteData = (id)=>{
+    client.query(`delete from notes where id='${id}'`, (error, results)=>{
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(results.rows);
+        }
+    });
+}
+
 var app = express();
 app.use(express.urlencoded());
 app.use(express.json());
@@ -99,6 +110,12 @@ app.get("/notes", (req, res) => {
 app.post('/notes', (req, res) => { 
     insertData(req.body.notes.desc);
     console.log("Inserting data: ", req.body.notes.desc) 
+    res.end();
+});
+
+app.delete('/notes/:id', (req, res) => { 
+    deleteData(req.params.id);
+    console.log("Deleting data: ", req.params.id) 
     res.end();
 });
 
