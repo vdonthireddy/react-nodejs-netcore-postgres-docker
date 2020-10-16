@@ -1,21 +1,21 @@
-## react-nodejs-aspnet-postgres
+## react-nodejs-netcore-postgres-docker
 #### Note: This project works only on Mac (You need to modify the allrun.sh file and dockerfiles for Windows)
 #### STEP 1a (for local development): Make sure you have nodejs and npm installed: https://www.npmjs.com/get-npm
 #### STEP 1b: Make sure you have docker installed: https://www.docker.com/products/docker-desktop
 #### STEP 2: Use terminal to clone my git repo
 ```
-git clone https://github.com/vdonthireddy/react-nodejs-aspnet-postgres
+git clone https://github.com/vdonthireddy/react-nodejs-netcore-postgres-docker
 ```
 #### STEP 3: Run the following commands 
 ```
-cd react-nodejs-aspnet-postgres
+cd react-nodejs-netcore-postgres-docker
 bash allrun.sh
 ```
 #### STEP 4: Open the url in a browser
 http://localhost:8080 
 
 #### STEP 5: To use C# to get data from PostGres, please set the following value in .env file:
-Go to /react-nodejs-aspnet-postgres/micro-app-client/.env
+Go to /react-nodejs-netcore-postgres-docker/micro-app-client/.env
 edit the following line appropriately (you can find this line in getNotes() function). Use '/api/' for C# and '/' for nodejs directly making calls to PostGres
 ```
 REACT_APP_.API_URL_PREFIX=/api/
