@@ -7,7 +7,7 @@ git clone https://github.com/vdonthireddy/react-nodejs-netcore-postgres-docker
 cd react-nodejs-netcore-postgres-docker
 bash allrun.sh
 ```
-3. Open browser and go to http://localhost:8080
+3. Open browser and go to http://localhost:8080 \
 That is all!!!
 
 #### Note: This project works only on Mac (You need to modify the allrun.sh file and dockerfiles for Windows)
