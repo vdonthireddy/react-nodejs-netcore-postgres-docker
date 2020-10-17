@@ -32,6 +32,8 @@ class NewWorkorderNotes extends Component {
     })
     .then(response=>{
       self.props.onNotesAdded(document.getElementById('notes_desc').value);
+      document.getElementById('notes_desc').value = '';
+      document.getElementById('notes_desc').focus();
       console.log('Step 5: this.props.onNotesAdded in NewWorkOrderNotes.js');
     });
   };
