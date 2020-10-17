@@ -6,6 +6,13 @@ class NewWorkorderNotes extends Component {
     super(props);
     this.addNewNotes=this.addNewNotes.bind(this);
   }
+
+  componentDidMount() {
+    var notes_desc = document.getElementById('notes_desc');
+    if (notes_desc != null) {
+      notes_desc.focus();
+    }
+  }
   
   addNewNotes = (e)=>{
     const self = this;
@@ -34,7 +41,7 @@ class NewWorkorderNotes extends Component {
       <div>
           <h1>New Workorder Notes:</h1>
           <form>
-            <input type="text" id="notes_desc" />
+            <input type="text" id="notes_desc" name="notes_desc" />
             <button id="btnSubmit" onClick={this.addNewNotes}>Add Notes</button>
           </form>
       </div>
