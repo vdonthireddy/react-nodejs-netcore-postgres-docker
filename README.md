@@ -1,5 +1,5 @@
 ## react-nodejs-netcore-postgres-docker
-# TLDR
+# TL;DR
 1. On your Mac, install [Docker](https://www.docker.com/products/docker-desktop)
 2. Open Terminal and run
 ```
