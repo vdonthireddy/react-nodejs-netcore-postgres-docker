@@ -1,5 +1,5 @@
 ## react-nodejs-netcore-postgres-docker
-# TL;DR
+## TL;DR
 1. On your Mac, install [Docker](https://www.docker.com/products/docker-desktop)
 2. Open Terminal and run
 ```
@@ -10,6 +10,7 @@ bash allrun.sh
 3. Open browser and go to http://localhost:8080 \
 That is all!!!
 
+## TS;RE
 #### Note: This project works only on Mac (You need to modify the allrun.sh file and dockerfiles for Windows)
 #### STEP 1a (for local development): Make sure you have nodejs and npm installed: https://www.npmjs.com/get-npm
 #### STEP 1b: Make sure you have docker installed: https://www.docker.com/products/docker-desktop
