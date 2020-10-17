@@ -6,16 +6,16 @@ import NewWorkOrderNotes from './NewWorkOrderNotes';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {notes: []};
+    this.state = { notes: [] };
     this.getNotes();
   }
 
-  getNotes = ()=>{
-    console.log('api url:', process.env.REACT_APP_.API_URL_PREFIX+'notes');
-    fetch(process.env.REACT_APP_.API_URL_PREFIX+'notes')
+  getNotes = () => {
+    console.log('api url:', process.env.REACT_APP_.API_URL_PREFIX + 'notes');
+    fetch(process.env.REACT_APP_.API_URL_PREFIX + 'notes')
       .then(response => response.json())
       .then(data => this.setState({ notes: data }));
-      console.log('Step 3: getNotes in App.js');
+    console.log('Step 3: getNotes in App.js');
   }
 
   notesRefreshed = () => {
@@ -24,13 +24,15 @@ class App extends Component {
     console.log('App.js notesRefreshed');
   }
 
-  render(){
+  render() {
     return (
       <div className="App">
         <header className="App-header">
-          <NewWorkOrderNotes onNotesAdded={this.notesRefreshed.bind(this)}/>
-          <WorkorderNotes onNotesDeleted={this.notesRefreshed.bind(this)} notes={this.state.notes}/>
         </header>
+        <body className="App-body">
+          <NewWorkOrderNotes onNotesAdded={this.notesRefreshed.bind(this)} />
+          <WorkorderNotes onNotesDeleted={this.notesRefreshed.bind(this)} notes={this.state.notes} />
+        </body>
       </div>
     );
   }

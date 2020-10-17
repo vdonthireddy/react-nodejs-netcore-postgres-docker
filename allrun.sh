@@ -20,7 +20,7 @@ docker-compose up -d
 
 #Let the containers start and execute the seed data (including creating database and table in PostgreSQL)
 echo 'creating seed data...'
-for i in {10..1}
+for i in {5..1}
 do
     sleep 1s
     echo "$i..."

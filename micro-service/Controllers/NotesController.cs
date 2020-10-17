@@ -9,6 +9,7 @@ using Npgsql;
 
 namespace micro_service.Controllers
 {
+    [Route("api/notes")]
     [ApiController]
     public class NotesController : ControllerBase
     {
@@ -22,7 +23,7 @@ namespace micro_service.Controllers
 
         }
 
-        [HttpGet("api/notes")]
+        [HttpGet]
         public async Task<IActionResult> GetNotes()
         {
             Console.WriteLine("Database [SELECT] query is executed from .NetCore/C#");
@@ -43,7 +44,7 @@ namespace micro_service.Controllers
             return Ok(notes);
         }
 
-        [HttpPost("api/notes")]
+        [HttpPost]
         public async Task<IActionResult> AddNotes(MyData mydata)
         {
             Console.WriteLine("Database [INSERT] query is executed from .NetCore/C#");
@@ -60,6 +61,23 @@ namespace micro_service.Controllers
                 await cmd.ExecuteNonQueryAsync();
 
                 Console.WriteLine("row inserted");
+            }
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteNotes(int id)
+        {
+            Console.WriteLine("Database [DELETE] query is executed from .NetCore/C#");
+            IList<Notes> notes = new List<Notes>();
+            using (var con = new NpgsqlConnection(_connectionString.Value))
+            {
+                con.Open();
+                var sql = "DELETE FROM notes WHERE id="+id;
+                using var cmd = new NpgsqlCommand(sql, con);
+                cmd.Prepare();
+                await cmd.ExecuteNonQueryAsync();
+                Console.WriteLine("row deleted");
             }
             return Ok();
         }

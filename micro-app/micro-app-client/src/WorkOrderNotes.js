@@ -36,13 +36,13 @@ class WorkorderNotes extends Component {
     return (
       <div>
         <h1>Workorder Notes:</h1>
-        <ul>
+        <table>
           {notes.map(note =>
-            <li key={note.id}>
-              {note.id}:{note.notes_desc}  <button id='aDeleteNotes' onClick={()=>this.deleteNotes(note.id)}>delete</button>
-            </li>
+            <tr key={note.id}>
+              <td>{note.id}</td><td>{note.notes_desc}</td><td><a href='#' id='aDeleteNotes' onClick={()=>this.deleteNotes(note.id)}>delete</a></td>
+            </tr>
           )}
-        </ul>
+        </table>
       </div>
     );
   }

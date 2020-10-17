@@ -141,6 +141,13 @@ app.post('/api/notes', (req, res) => {
         });   
 });
 
+app.delete('/api/notes/:id', (req, res)=>{
+    console.log('Database query is executed from /api/notes');
+    axios.delete(process.env.API_SERVER_URL+'/'+req.params.id).then((response) => {
+        res.send(response.data);
+    });
+});
+
 app.listen(8080, '0.0.0.0', ()=>{
     console.log('server listenting at http://localhost:8080/');
 });
