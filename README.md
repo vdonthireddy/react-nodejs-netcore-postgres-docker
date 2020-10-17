@@ -47,9 +47,3 @@ This project is divided into three parts:
     - NodeJS (Can call PostgreSQL directly, or Micro Service APIs)
 2. Micro Service (Written in .Net Core 5.0 and C#)
 3. PostgreSQL (Database)
-
-What's missing?
-- PostgreSQL data files should be stored in docker volumes to persist the data even if Postgres instance is removed - but usually you connect to a DB server outside of the current pod if you host the apps in K8s
-- Deploy the docker images in K8s
-- Unit Testing
-- Many other :-)
