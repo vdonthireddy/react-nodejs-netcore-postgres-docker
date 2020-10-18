@@ -10,11 +10,11 @@ class App extends Component {
     this.getNotes();
   }
 
-  getNotes = () => {
+  async getNotes() {
     console.log('api url:', process.env.REACT_APP_.API_URL_PREFIX + 'notes');
-    fetch(process.env.REACT_APP_.API_URL_PREFIX + 'notes')
-      .then(response => response.json())
-      .then(data => this.setState({ notes: data }));
+    const response = await fetch(process.env.REACT_APP_.API_URL_PREFIX + 'notes');
+    const data = await response.json();
+    this.setState({ notes: data});
     console.log('Step 3: getNotes in App.js');
   }
 

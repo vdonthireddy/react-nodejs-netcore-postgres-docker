@@ -26,3 +26,10 @@ do
     echo "$i..."
 done
 curl http://localhost:8080/create-schema
+echo 'Opening browser...'
+for i in {2..1}
+do
+    sleep 1s
+    echo "$i..."
+done
+open http://localhost:8080/
