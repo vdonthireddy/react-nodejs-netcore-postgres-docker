@@ -26,6 +26,7 @@ do
     echo "$i..."
 done
 curl http://localhost:8080/create-schema
+docker ps
 echo 'Opening browser...'
 for i in {2..1}
 do
@@ -33,3 +34,4 @@ do
     echo "$i..."
 done
 open http://localhost:8080/
+docker logs --follow vj-micro-app-container
