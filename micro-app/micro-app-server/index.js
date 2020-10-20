@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const Globals = require('./globals.js');
 
-const notes = require('./routes/notes.js');
+const item = require('./routes/item.js');
 const api = require('./routes/api.js');
 
 const app = express();
@@ -12,7 +12,7 @@ global.globals = new Globals();
 app.use(express.urlencoded());
 app.use(express.json());
 app.use('/', express.static(__dirname + '/'));
-app.use('/notes', notes);
+app.use('/item', item);
 app.use('/api', api);
 
 app.get('/', function(req, res) {

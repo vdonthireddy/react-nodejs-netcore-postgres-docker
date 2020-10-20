@@ -2,16 +2,16 @@ const express = require('express');
 const route = express.Router();
 const axios = require('axios');
 
-route.get('/notes', (req, res)=>{
-    console.log('Database query is executed from /api/notes');
+route.get('/item', (req, res)=>{
+    console.log('Database query is executed from /api/item');
     axios.get(process.env.API_SERVER_URL).then((response) => {
         res.send(response.data);
     });
 });
 
-route.post('/notes', (req, res) => { 
+route.post('/item', (req, res) => { 
     const data = {
-        notes_desc:req.body.notes.desc
+        item_desc:req.body.item.desc
     };
     axios.post(process.env.API_SERVER_URL, data)
         .then((response) => {
@@ -24,8 +24,8 @@ route.post('/notes', (req, res) => {
         });   
 });
 
-route.delete('/notes/:id', (req, res)=>{
-    console.log('Database query is executed from /api/notes');
+route.delete('/item/:id', (req, res)=>{
+    console.log('Database query is executed from /api/item');
     axios.delete(process.env.API_SERVER_URL+'/'+req.params.id).then((response) => {
         res.send(response.data);
     });

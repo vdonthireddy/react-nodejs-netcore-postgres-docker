@@ -43,7 +43,7 @@ class Globals {
     }
 
     createTable() {
-        this.pg_client.query('create table IF NOT EXISTS notes(id INT GENERATED ALWAYS AS IDENTITY, notes_desc VARCHAR(255));', (error, results) => {
+        this.pg_client.query('create table IF NOT EXISTS item(id INT GENERATED ALWAYS AS IDENTITY, item_desc VARCHAR(255));', (error, results) => {
             if (error) {
                 console.log(error);
             } else {

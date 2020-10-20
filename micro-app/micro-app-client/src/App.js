@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
 import './App.css';
-import WorkorderNotes from './WorkOrderNotes';
-import NewWorkOrderNotes from './NewWorkOrderNotes';
+import ToDoItem from './ToDoItem';
+import NewToDoItem from './NewToDoItem';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { notes: [] };
-    this.getNotes();
+    this.state = { item: [] };
+    this.getItems();
   }
 
-  async getNotes() {
-    console.log('api url:', process.env.REACT_APP_.API_URL_PREFIX + 'notes');
-    const response = await fetch(process.env.REACT_APP_.API_URL_PREFIX + 'notes');
+  async getItems() {
+    console.log('api url:', process.env.REACT_APP_.API_URL_PREFIX + 'item');
+    const response = await fetch(process.env.REACT_APP_.API_URL_PREFIX + 'item');
     const data = await response.json();
-    this.setState({ notes: data});
-    console.log('Step 3: getNotes in App.js');
+    this.setState({ item: data});
+    console.log('Step 3: getItems in App.js');
   }
 
-  notesRefreshed = () => {
-    console.log('Step 2: notesRefreshed in App.js');
-    this.getNotes();
-    console.log('App.js notesRefreshed');
+  itemRefreshed = () => {
+    console.log('Step 2: itemRefreshed in App.js');
+    this.getItems();
+    console.log('App.js itemRefreshed');
   }
 
   render() {
@@ -30,8 +30,8 @@ class App extends Component {
         <header className="App-header">
         </header>
         <body className="App-body">
-          <NewWorkOrderNotes onNotesAdded={this.notesRefreshed.bind(this)} />
-          <WorkorderNotes onNotesDeleted={this.notesRefreshed.bind(this)} notes={this.state.notes} />
+          <NewToDoItem onItemsAdded={this.itemRefreshed.bind(this)} />
+          <ToDoItem onItemsDeleted={this.itemRefreshed.bind(this)} item={this.state.item} />
         </body>
       </div>
     );

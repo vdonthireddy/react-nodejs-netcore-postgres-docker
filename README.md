@@ -28,7 +28,7 @@ http://localhost:8080
 
 #### STEP 5: To use C# to get data from PostGres, please set the following value in .env file:
 Go to /react-nodejs-netcore-postgres-docker/micro-app-client/.env
-edit the following line appropriately (you can find this line in getNotes() function). Use '/api/' for C# and '/' for nodejs directly making calls to PostGres
+edit the following line appropriately (you can find this line in getItems() function). Use '/api/' for C# and '/' for nodejs directly making calls to PostGres
 ```
 REACT_APP_.API_URL_PREFIX=/api/
 ```

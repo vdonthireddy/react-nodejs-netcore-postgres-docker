@@ -2,10 +2,10 @@ using System;
 
 namespace micro_service.Models
 {
-    public class Notes
+    public class Item
     {
         public int id { get; set; }
 
-        public string notes_desc { get; set; }
+        public string item_desc { get; set; }
     }
 }
